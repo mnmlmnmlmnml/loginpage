@@ -1,0 +1,33 @@
+@import '../Mixins/index.scss';
+
+.social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    @include mobile {
+        flex-direction: column;
+    }
+}
+
+.svg {
+    width: 24px;
+    height: 24px;
+}
+.button {
+    margin-right: 25px;
+    border-radius: 10px;
+    border: 1px solid rgba(188, 190, 192, 1);
+    background-color: white;
+    padding: 13px 60px;
+    cursor: pointer;
+    &:hover {
+        background-color: #dddddd;
+        transition: all 0.5s ease;
+    }
+
+    @include mobile {
+        margin-bottom: 15px;
+        margin-right: 0;
+    }
+}
