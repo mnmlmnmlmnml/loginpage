@@ -1,3 +1,9 @@
+:root {
+    --main: white;
+    --secondary: rgba(189, 12, 71, 1);
+    --transition: 0.3s ease;
+}
+
 html,
 body {
     min-height: 100%;
@@ -29,7 +35,7 @@ a {
     color: white;
     &:hover {
         color: #ff93b7;
-        transition: all 0.5s ease;
+        transition: var(--transition);
     }
 }
 #root {

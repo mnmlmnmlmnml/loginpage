@@ -1,7 +1,7 @@
 .button {
-    color: white;
-    background: rgba(189, 12, 71, 1);
-    border: 1px solid rgba(189, 12, 71, 1);
+    color: var(--main);
+    background: var(--secondary);
+    border: 1px solid var(--secondary);
     border-radius: 10px;
     font-size: 20px;
     font-weight: 700;
@@ -11,5 +11,6 @@
     cursor: pointer;
     &:hover {
         background-color: #970938;
+        transition: var(--transition);
     }
 }
