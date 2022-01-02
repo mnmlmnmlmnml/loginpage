@@ -1,9 +1,7 @@
-@import '../Mixins/index.scss';
+@import '../utils/media.scss';
 
 .social {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 32px;
     @include mobile {
         flex-direction: column;
@@ -21,9 +19,9 @@
     background-color: white;
     padding: 13px 60px;
     cursor: pointer;
+    transition: var(--transition);
     &:hover {
         background-color: #dddddd;
-        transition: var(--transition);
     }
 
     @include mobile {

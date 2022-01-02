@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes } from 'react'
-import styles from './index.module.scss'
+import styles from './Input.module.scss'
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
     label?: string

@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './index.module.scss'
-import svgFace from './facebook.svg'
-import svgGit from './github.svg'
-import svgGoogle from './google.svg'
+import styles from './Social.module.scss'
+import svgFace from './svg/facebook.svg'
+import svgGit from './svg/github.svg'
+import svgGoogle from './svg/google.svg'
 
 const social = [
     {

@@ -3,14 +3,14 @@
     background: var(--secondary);
     border: 1px solid var(--secondary);
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
     line-height: 24px;
     padding: 13px 0;
     margin-bottom: 45px;
     cursor: pointer;
+    transition: var(--transition);
     &:hover {
         background-color: #970938;
-        transition: var(--transition);
     }
 }

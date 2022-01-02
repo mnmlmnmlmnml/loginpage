@@ -1,6 +1,6 @@
 import React from 'react'
 import { Input, Link, Button, Social } from '../../ui'
-import styles from './index.module.scss'
+import styles from './Form.module.scss'
 
 export function Form() {
     return (
