@@ -4,35 +4,32 @@ import { Input, Link, Button, Social } from '../../ui'
 import styles from './Form.module.scss'
 
 export function Form() {
-    const [value, setValue] = useState('')
+    const initialErrors = { password: '', email: '' }
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [errors, setErrors] = useState('')
+    const [errors, setErrors] = useState(initialErrors)
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
-
-        setValue('')
-        setPassword('')
+        const error = initialErrors
+        if (!password || password.length < 8) {
+            error.password = !password
+                ? 'Укажите пароль'
+                : 'Используйте не менее 8 символов'
+        }
+        if (!email) {
+            error.email = 'Укажите E-mail'
+        }
+        if (error.email || errors.password) {
+            setErrors(error)
+        }
     }
 
-    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-        setValue(e.target.value)
-        if (!e.target.value) {
-            setErrors('Введите данные')
-        } else {
-            setErrors('')
-        }
+    function handleEmail(e: React.ChangeEvent<HTMLInputElement>) {
+        setEmail(e.target.value)
     }
     function handlePassword(e: React.ChangeEvent<HTMLInputElement>) {
         setPassword(e.target.value)
-        if (e.target.name.length < 3 || e.target.name.length > 8) {
-            setErrors('Пароль должен быть длинне 3  и меньше 8')
-        }
-        if (!e.target.value) {
-            setErrors('Введите данные')
-        } else {
-            setErrors('')
-        }
     }
 
     return (
@@ -40,25 +37,27 @@ export function Form() {
             <div className={styles.form}>
                 <h3 className={styles.text}>Your logo</h3>
                 <h2 className={styles.title}>Login</h2>
-                {errors && <span className={styles.error}>{errors}</span>}
+
                 <Input
                     name='email'
-                    value={value}
-                    onChange={(e) => handleChange(e)}
+                    value={email}
+                    onChange={handleEmail}
                     type='email'
                     label='Email'
                     placeholder='username@gmail.com'
+                    errors={errors}
                 />
-                {errors && <span className={styles.error}>{errors}</span>}
+
                 <Input
-                    name={password}
+                    name='password'
                     value={password}
-                    onChange={(e) => handlePassword(e)}
+                    onChange={handlePassword}
                     type='password'
                     label='Password'
                     placeholder='Password'
+                    errors={errors}
                 />
-                <Link text='Forgot Password?' href='.' />
+                <Link text='Forgot Password?' href='/' />
                 <Button type='button' label='Sign in' />
                 <span className={styles.desc}>or continue with</span>
                 <Social />
