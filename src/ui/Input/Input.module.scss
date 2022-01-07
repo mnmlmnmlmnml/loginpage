@@ -24,10 +24,10 @@
 }
 .button {
     position: absolute;
-    bottom: 37px;
+    bottom: 33px;
     right: 25px;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     font-size: 0;
     background-image: url(eye.svg);
     background-size: cover;
@@ -35,4 +35,15 @@
     border: none;
     border-radius: 40px;
     cursor: pointer;
+    // &::after {
+    //     content: '';
+    //     position: absolute;
+    //     top: 8px;
+    //     right: 0;
+    //     width: 20px;
+    //     height: 2px;
+    //     background: black;
+    //     transform: rotate(45deg);
+    //     transition: 0.3s all ease;
+    // }
 }

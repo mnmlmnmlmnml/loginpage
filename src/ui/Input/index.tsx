@@ -3,13 +3,15 @@ import styles from './Input.module.scss'
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
     label?: string
+    name?: string
 }
-
 export function Input({
     label = '',
+    name = '',
     value,
     placeholder,
     onChange,
+
     type = 'text',
 }: Props) {
     return (
@@ -21,6 +23,7 @@ export function Input({
                 type={type}
                 value={value}
                 onChange={onChange}
+                name={name}
             />
             {type === 'password' && (
                 <button className={styles.button}>show password</button>
