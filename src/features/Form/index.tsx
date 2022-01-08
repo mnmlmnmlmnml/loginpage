@@ -8,10 +8,15 @@ export function Form() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState(initialErrors)
+    const [passwordShown, setPasswordShown] = useState(false)
+
+    const togglePasswordVisiblity = () => {
+        setPasswordShown((prev) => !prev)
+    }
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
-        const error = initialErrors
+        const error = { ...initialErrors }
         if (!password || password.length < 8) {
             error.password = !password
                 ? 'Укажите пароль'
@@ -23,6 +28,9 @@ export function Form() {
         if (error.email || errors.password) {
             setErrors(error)
         }
+
+        setPassword('')
+        setEmail('')
     }
 
     function handleEmail(e: React.ChangeEvent<HTMLInputElement>) {
@@ -43,7 +51,7 @@ export function Form() {
                     value={email}
                     onChange={handleEmail}
                     type='email'
-                    label='Email'
+                    label='email'
                     placeholder='username@gmail.com'
                     errors={errors}
                 />
@@ -52,13 +60,14 @@ export function Form() {
                     name='password'
                     value={password}
                     onChange={handlePassword}
-                    type='password'
-                    label='Password'
+                    type={passwordShown ? 'text' : 'password'}
+                    label='password'
                     placeholder='Password'
                     errors={errors}
+                    togglePasswordVisiblity={togglePasswordVisiblity}
                 />
                 <Link text='Forgot Password?' href='/' />
-                <Button type='button' label='Sign in' />
+                <Button type='submit' label='Sign in' />
                 <span className={styles.desc}>or continue with</span>
                 <Social />
                 <span className={styles.desc}>

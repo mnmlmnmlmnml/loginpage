@@ -4,12 +4,15 @@ import styles from './Input.module.scss'
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
     label?: string
     name?: string
-    errors: { [key: string]: string } // {password: 'oshibka'}
+    errors: { [key: string]: string }
+    togglePasswordVisiblity?: () => void
 }
+
 export function Input({
     label = '',
-    name = '', // password / email i td
+    name = '',
     value,
+    togglePasswordVisiblity,
     placeholder,
     onChange,
     type = 'text',
@@ -19,7 +22,6 @@ export function Input({
         <label className={styles.label}>
             {label}
             <input
-                autoComplete='off'
                 className={styles.input}
                 placeholder={placeholder}
                 type={type}
@@ -31,8 +33,14 @@ export function Input({
             {errors[name] && (
                 <span className={styles.error}>{errors[name]}</span>
             )}
-            {type === 'password' && (
-                <button className={styles.button}>show password</button>
+            {label === 'password' && (
+                <button
+                    type='button'
+                    onClick={togglePasswordVisiblity}
+                    className={styles.button}
+                >
+                    show password
+                </button>
             )}
         </label>
     )

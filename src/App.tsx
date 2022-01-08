@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form } from './features'
+import { Form } from 'features'
 import styles from './App.module.scss'
 
 function App() {
